@@ -1,0 +1,41 @@
+# Project: 学生信息管理系统
+# Makefile created by Red Panda C++ 0.14.4
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o tool.o seek_function.o print_function.o change+del_function.o
+LINKOBJ  = main.o tool.o seek_function.o print_function.o change+del_function.o
+CLEANOBJ  =  main.o tool.o seek_function.o print_function.o change+del_function.o
+LIBS     = 
+INCS     =  
+CXXINCS  =  
+BIN      = 学生信息管理系统.exe
+CXXFLAGS = $(CXXINCS)  -Wall -Wextra -g3 -pipe -D__DEBUG__
+CFLAGS   = $(INCS)  -Wall -Wextra -g3 -pipe -D__DEBUG__
+RM       = del /q /f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(CLEANOBJ) $(BIN) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c tool.h
+	$(CC) -c D:/课设/大一上-学生管理系统/学生信息管理系统（最终版）/学生信息管理系统(人工智能212)(小熊猫版)/main.c -o main.o $(CFLAGS) 
+
+tool.o: tool.c tool.h
+	$(CC) -c D:/课设/大一上-学生管理系统/学生信息管理系统（最终版）/学生信息管理系统(人工智能212)(小熊猫版)/tool.c -o tool.o $(CFLAGS) 
+
+seek_function.o: seek_function.c tool.h
+	$(CC) -c D:/课设/大一上-学生管理系统/学生信息管理系统（最终版）/学生信息管理系统(人工智能212)(小熊猫版)/seek_function.c -o seek_function.o $(CFLAGS) 
+
+print_function.o: print_function.c tool.h
+	$(CC) -c D:/课设/大一上-学生管理系统/学生信息管理系统（最终版）/学生信息管理系统(人工智能212)(小熊猫版)/print_function.c -o print_function.o $(CFLAGS) 
+
+change+del_function.o: change+del_function.c tool.h
+	$(CC) -c D:/课设/大一上-学生管理系统/学生信息管理系统（最终版）/学生信息管理系统(人工智能212)(小熊猫版)/change+del_function.c -o change+del_function.o $(CFLAGS) 
